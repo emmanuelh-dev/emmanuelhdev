@@ -27,7 +27,7 @@ const experience: ExperienceProps[] = [
     description:
       'Contributed to the development team at ConnectIT from May 2023 to September 2023. Utilized Node.js, JavaScript, Vue.js, Vuetify, and Git to create robust applications. Specialized in UX design and employed FastAPI with Python for efficient backend solutions. Collaborated with the team to implement features, enhance user experiences, and ensure smooth development workflows.',
     job: 'Developer',
-    link: 'https://www.connectit.com/',
+    link: 'https://www.connectit.com.mx/',
     date: 'May 2023 - Sep 2023',
     skills: ['Nodejs', 'JavaScript', 'Vue', 'Vuetify', 'Git', 'UX', 'FastAPI', 'Python'],
   },
@@ -60,6 +60,7 @@ const Experience = () => {
                 <a
                   href={company.link}
                   className="block text-lg font-bold"
+                  target="_blank"
                 >{`${company.job} - ${company.title}`}</a>
                 <p className="text-neutral-400">{company.description}</p>
                 <ul className="mb-4 font-normal opacity-75">
