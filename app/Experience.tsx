@@ -30,37 +30,7 @@ const experience: ExperienceProps[] = [
   },
 ]
 
-function calcularPorcentajeUso() {
-  const habilidadesTotales: string[] = experience.reduce(
-    (total, trabajo) => total.concat(trabajo.skills),
-    []
-  )
-
-  return experience.map((trabajo) => {
-    const porcentajesHabilidades: Record<string, string> = trabajo.skills.reduce(
-      (porcentajes, habilidad) => {
-        const usoPorcentaje = (
-          (habilidadesTotales.filter((h) => h === habilidad).length / habilidadesTotales.length) *
-          100
-        ).toFixed(2)
-        porcentajes[habilidad] = usoPorcentaje
-        return porcentajes
-      },
-      {}
-    )
-
-    return {
-      title: trabajo.title,
-      job: trabajo.job,
-      date: trabajo.date,
-      skills: porcentajesHabilidades,
-    }
-  })
-}
-
 const Experience = () => {
-  const experienciaConPorcentajes = calcularPorcentajeUso()
-
   return (
     <div className="py-72">
       <div className="space-y-2 pb-8 pt-6 md:space-y-5">
@@ -70,26 +40,16 @@ const Experience = () => {
       </div>
       <section className="ml-4 lg:flex">
         <ol className="relative flex-1 border-l">
-          {experienciaConPorcentajes.map((company) => (
+          {experience.map((company) => (
             <div className="flex" key={company.title}>
               <li className="mb-10 ml-4 flex-1">
                 <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border bg-white"></div>
                 <time className="mb-1 font-normal leading-none opacity-50">{company.date}</time>
                 <h3 className="text-lg font-bold">{`${company.job} - ${company.title}`}</h3>
                 <ul className="mb-4 font-normal opacity-75">
-                  {Object.entries(company.skills).map(([skill, porcentaje, index]) => (
+                  {Object.entries(company.skills).map(([skill]) => (
                     <div className="flex justify-between" key={skill}>
                       <li className=" ml-4 list-disc text-sm">{skill}</li>
-                      <span
-                        key={index}
-                        className={`mr-4 list-disc text-sm ${
-                          porcentaje > 15
-                            ? 'w-32 bg-green-600'
-                            : porcentaje > 10
-                              ? 'w-24 bg-green-400'
-                              : 'w-14 bg-green-200'
-                        } block h-[0.4rem]  rounded-full`}
-                      ></span>
                     </div>
                   ))}
                 </ul>
