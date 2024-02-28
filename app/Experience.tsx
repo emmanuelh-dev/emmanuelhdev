@@ -31,17 +31,23 @@ const experience: ExperienceProps[] = [
 ]
 
 function calcularPorcentajeUso() {
-  const habilidadesTotales = experience.reduce((total, trabajo) => total.concat(trabajo.skills), [])
+  const habilidadesTotales: string[] = experience.reduce(
+    (total, trabajo) => total.concat(trabajo.skills),
+    []
+  )
 
   return experience.map((trabajo) => {
-    const porcentajesHabilidades = trabajo.skills.reduce((porcentajes, habilidad) => {
-      const usoPorcentaje = (
-        (habilidadesTotales.filter((h) => h === habilidad).length / habilidadesTotales.length) *
-        100
-      ).toFixed(2)
-      porcentajes[habilidad] = usoPorcentaje
-      return porcentajes
-    }, {})
+    const porcentajesHabilidades: Record<string, string> = trabajo.skills.reduce(
+      (porcentajes, habilidad) => {
+        const usoPorcentaje = (
+          (habilidadesTotales.filter((h) => h === habilidad).length / habilidadesTotales.length) *
+          100
+        ).toFixed(2)
+        porcentajes[habilidad] = usoPorcentaje
+        return porcentajes
+      },
+      {}
+    )
 
     return {
       title: trabajo.title,
