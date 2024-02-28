@@ -2,7 +2,14 @@ import React from 'react'
 import { DiNodejs, DiPython, DiPhp, DiLaravel, DiHtml5, DiCss3, DiJsBadge } from 'react-icons/di'
 import { SiNextdotjs } from 'react-icons/si'
 
-const experience = [
+interface ExperienceProps {
+  title: string
+  job: string
+  date: string
+  skills: string[]
+}
+
+const experience: ExperienceProps[] = [
   {
     title: 'Gonzher Logistic and transport',
     job: 'Full Stack Developer',
@@ -56,14 +63,14 @@ const Experience = () => {
         </h1>
       </div>
       <section className="ml-4 lg:flex">
-        <ol class="relative flex-1 border-l">
+        <ol className="relative flex-1 border-l">
           {experienciaConPorcentajes.map((company) => (
             <div className="flex" key={company.title}>
-              <li class="mb-10 ml-4 flex-1">
-                <div class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border bg-white"></div>
-                <time class="mb-1 font-normal leading-none opacity-50">{company.date}</time>
-                <h3 class="text-lg font-bold">{`${company.job} - ${company.title}`}</h3>
-                <ul class="mb-4 font-normal opacity-75">
+              <li className="mb-10 ml-4 flex-1">
+                <div className="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border bg-white"></div>
+                <time className="mb-1 font-normal leading-none opacity-50">{company.date}</time>
+                <h3 className="text-lg font-bold">{`${company.job} - ${company.title}`}</h3>
+                <ul className="mb-4 font-normal opacity-75">
                   {Object.entries(company.skills).map(([skill, porcentaje, index]) => (
                     <div className="flex justify-between" key={skill}>
                       <li className=" ml-4 list-disc text-sm">{skill}</li>
