@@ -26,7 +26,7 @@ const experience: ExperienceProps[] = [
     title: 'BysMax',
     job: 'FrontEnd Developer',
     date: 'Jan 2021 - June 2023',
-    skills: ['React', 'JavaScript', 'NextJS', 'Node', 'TailwindCSS'],
+    skills: ['React', 'JavaScript', 'NextJS', 'Nodejs', 'TailwindCSS'],
   },
 ]
 
@@ -47,7 +47,7 @@ const Experience = () => {
                 <time className="mb-1 font-normal leading-none opacity-50">{company.date}</time>
                 <h3 className="text-lg font-bold">{`${company.job} - ${company.title}`}</h3>
                 <ul className="mb-4 font-normal opacity-75">
-                  {Object.entries(company.skills).map(([skill]) => (
+                  {company.skills.map((skill) => (
                     <div className="flex justify-between" key={skill}>
                       <li className=" ml-4 list-disc text-sm">{skill}</li>
                     </div>
