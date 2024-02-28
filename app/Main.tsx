@@ -17,7 +17,7 @@ export default function Home({ posts }) {
           <div className="lg:w-3/5">
             <h1 className="text-4xl font-bold lg:text-6xl">{siteMetadata.description}</h1>
             <div className="flex items-center">
-              <h3 className="my-8 text-xl">Emmanuel Hernandez | Dev</h3>
+              <h3 className="my-8 text-xl">React | Laravel | TailwindCSS | Node | Type Script</h3>
               <a
                 href="/Resume.pdf"
                 download
