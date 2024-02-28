@@ -44,7 +44,7 @@ const experience: ExperienceProps[] = [
 
 const Experience = () => {
   return (
-    <div className="mx-auto max-w-2xl py-72">
+    <div className="mx-auto max-w-2xl py-28 lg:py-72">
       <div className="space-y-2 pb-8 pt-6 md:space-y-5">
         <h1 className="text-3xl font-bold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
           Experience and skills

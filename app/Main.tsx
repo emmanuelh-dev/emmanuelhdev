@@ -27,13 +27,7 @@ export default function Home({ posts }) {
               </a>
             </div>
           </div>
-          <Image
-            width={400}
-            height={400}
-            objectFit="cover"
-            src={'/static/designer-d0.svg'}
-            alt=""
-          />
+          <Image width={400} height={400} objectFit="cover" src={'/static/header.svg'} alt="" />
         </div>
       </main>
       <Experience />
