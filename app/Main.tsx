@@ -12,6 +12,7 @@ const MAX_DISPLAY = 5
 export default function Home({ posts }) {
   return (
     <>
+      <Experience />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
