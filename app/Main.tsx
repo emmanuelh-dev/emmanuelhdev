@@ -12,6 +12,30 @@ const MAX_DISPLAY = 5
 export default function Home({ posts }) {
   return (
     <>
+      <main className="">
+        <div className="flex w-full items-center justify-center max-sm:flex-col-reverse  lg:py-56">
+          <div className="lg:w-3/5">
+            <h1 className="text-4xl font-bold lg:text-6xl">{siteMetadata.description}</h1>
+            <div className="flex items-center">
+              <h3 className="my-8 text-xl">Emmanuel Hernandez | Dev</h3>
+              <a
+                href="/Resume.pdf"
+                download
+                className="ml-4 rounded-lg bg-neutral-950 px-6 py-2 text-white dark:bg-neutral-100 dark:text-black"
+              >
+                <BsDownload />
+              </a>
+            </div>
+          </div>
+          <Image
+            width={400}
+            height={400}
+            objectFit="cover"
+            src={'/static/designer-d0.svg'}
+            alt=""
+          />
+        </div>
+      </main>
       <Experience />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
