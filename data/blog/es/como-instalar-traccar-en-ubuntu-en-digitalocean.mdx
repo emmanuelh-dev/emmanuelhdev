@@ -40,12 +40,17 @@ Esto establece la contraseña de root, otorga permisos totales al usuario root y
 
 ## Descargar e instalar Traccar
 
-Ahora descargamos la última versión de Traccar y la instalamos:
+Ahora descargamos la última versión de Traccar:
 
 ```
 wget https://www.traccar.org/download/traccar-linux-64-latest.zip
-unzip traccar-linux-*.zip
-./traccar.run
+```
+
+La descomprimimos y la instalamos:
+
+```
+unzip traccar-linux-*.zip && ./traccar.run
+
 ```
 
 ## Configurar Traccar para MySQL
@@ -60,12 +65,12 @@ cat > /opt/traccar/conf/traccar.xml << EOF
 
 <properties>
 
-  <entry key="config.default">./conf/default.xml</entry>
+    <entry key="config.default">./conf/default.xml</entry>
 
-  <entry key='database.driver'>com.mysql.jdbc.Driver</entry>
-  <entry key='database.url'>jdbc:mysql://localhost/traccar?zeroDateTimeBehavior=round&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false&allowMultiQueries=true&autoReconnect=true&useUnicode=yes&characterEncoding=UTF-8&sessionVariables=sql_mode=''</entry>
-  <entry key='database.user'>root</entry>
-  <entry key='database.password'>root</entry>
+    <entry key='database.driver'>com.mysql.jdbc.Driver</entry>
+    <entry key='database.url'>jdbc:mysql://localhost/traccar?zeroDateTimeBehavior=round&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8&amp;sessionVariables=sql_mode=''</entry>
+    <entry key='database.user'>root</entry>
+    <entry key='database.password'>root</entry>
 
 </properties>
 EOF
