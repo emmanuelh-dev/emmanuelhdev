@@ -1,6 +1,6 @@
 ---
 title: 'Monitorear Temperatura y Ubicación con el Rastreador GPS Coban 405'
-date: '2023-06-15' 
+date: '2024-03-15' 
 tags: ['gps', 'rastreador', 'vehicular', 'temperatura']
 draft: false
 summary: 'Aprende cómo configurar el rastreador GPS Coban 405 para monitorear continuamente la temperatura junto con la ubicación en la plataforma web o aplicación móvil.'
@@ -46,4 +46,51 @@ Si tu unidad no cuenta con el sensor de temperatura, puedes adquirirlo por separ
 
 Una vez instalado el hardware del sensor, podrás acceder a todas las funciones de monitoreo de temperatura y configuración de alertas mediante los comandos SMS descritos.
 
-Aprovecha estas capacidades del rastreador Coban 405 para un control más completo de la temperatura en tus aplicaciones de rastreo de vehículos. Combínalo con el monitoreo continuo de ubicación vía GPRS para una solución integrada.
+## Lista de Comandos SMS para configurar el GPS coban (Aplica para cualquier version del mismo)
+
+Para configurar un GPS Coban requieres enviar comandos SMS con la contraseña. La contraseña por defecto es 123456.
+
+Monitoreo de Temperatura en Modo GPRS:
+```
+protocol123456 18
+```
+Activa el protocolo extendido que incluye temperatura en los reportes GPRS.
+
+Alertas de Temperatura:
+```
+temperature123456 -10,40
+```
+Configura una alerta si la temperatura cae por debajo de -10°C o sube por encima de 40°C.
+
+```
+notemperature123456
+```
+Desactiva las alertas de temperatura.
+
+Verificar Temperatura:
+```
+check123456
+```
+Solicita el estado del dispositivo, que incluye la temperatura actual entre otros datos.
+
+Obtener Ubicación y Temperatura por SMS:
+```  
+fix090s***n123456
+```
+Solicita un reporte de ubicación.
+
+```
+check123456 
+```
+Solicita el estado con temperatura.
+
+Además, puedes configurar contraseña, APN, modo de rastreo, alertas diversas y más con comandos como:
+
+```
+password123456 nueva_contraseña
+apn123456 APN_de_tu_operador
+sleep123456 off 030s 030m 005n
+stockade123456 22.554,113.903;22.553,113.909 //Geocerca
+```
+
+Consulta el manual de usuario para conocer todos los comandos disponibles. Es recomendable cambiar la contraseña por defecto por una nueva después de la instalación inicial.
