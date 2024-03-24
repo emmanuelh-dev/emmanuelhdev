@@ -29,7 +29,7 @@ const projectsData: Project[] = [
     title: 'LA CAFETERIA | STARTER',
     description: `Discover our restaurant template crafted with Tailwind CSS and Gatsby. Browsing our menu is now a breeze, making the dining experience hassle-free and enjoyable.`,
     imgSrc: '/static/images/gallery.png',
-    href: 'https://la-cafeteria-with-tailwindcss.vercel.app/',
+    href: 'https://la-cafeteria.emmanuelh.dev',
   },
   {
     title: 'Drinks Browser',
