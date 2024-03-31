@@ -6,6 +6,7 @@ draft: false
 authors: ['default']
 summary: 'In this blog post, we’ll walk through the steps to create a new file in github using a customized URL.'
 ---
+
 # How to Create a New File in GitHub Using a Customized URL
 
 GitHub is a popular platform for version control and collaborative software development. Whether you're a seasoned developer or just starting out, knowing how to create a new file in a GitHub repository can be incredibly helpful. In this blog post, we'll walk through the steps to create a new file using a customized URL.
@@ -14,31 +15,32 @@ GitHub is a popular platform for version control and collaborative software deve
 
 To create a new file, start with the base URL:
 
-```
-https://github.com/<username>/<project_name>/new/<branch_name>/
+```markdown
+https://github.com/username/project_name/new/branch_name/
 ```
 
 Replace the placeholders with the relevant information:
 
-- `<username>`: Your GitHub username.
-- `<project_name>`: The name of your project/repository.
-- `<branch_name>`: The branch where you want to create the file (e.g., `master`).
+- `username`: Your GitHub username.
+- `project_name`: The name of your project/repository.
+- `branch_name`: The branch where you want to create the file (e.g., `master`).
 
 Next, add the desired **file path after the branch name to specify where you want to create the file**. For example, if you want to create a file in a specific folder, specify the folder path.
 
-To specify the name of the new file, append `?filename=<your_file_name>` to the end of the URL. Replace `<your_file_name>` with the desired filename (e.g., `test.mdx`).
+To specify the name of the new file, append `?filename=your_file_name` to the end of the URL. Replace `your_file_name` with the desired filename (e.g., `test.mdx`).
 
-Optionally, if you want to add content to the new file immediately, include `&value=<your_content>` in the URL.
+Optionally, if you want to add content to the new file immediately, include `&value=your_content` in the URL.
 
-## Step 2: Add content to URL 
+## Step 2: Add content to URL
 
-- To specify the name of the new file, append ?filename=<your_file_name> to the URL.
-- Optionally, you can also add content to the new file by including &value=<your_content> in the URL.
+- To specify the name of the new file, append ?filenam=our_file_name to the URL.
+- Optionally, you can also add content to the new file by including &value=your_content in the URL.
 
 Let's say you're working on the `emmanuelhdev` project, and you want to create a new markdown entry file named `test.mdx` in the `tests` folder under the `master` branch. Here's the customized URL:
 
 ```markdown
 https://blog.bysmax.com/blog/generador-de-cabeceras-para-tailwind-nextjs-starter-blog
+
 ```
 
 As an example, I developed [this tool](https://blog.bysmax.com/blog/generador-de-cabeceras-para-tailwind-nextjs-starter-blog). Simply enter the title and body, and begin typing your new entry.
