@@ -8,27 +8,36 @@ summary: 'Guia rápida de como configurar sensores BLE (Bluetooth) de manera  r�
 ---
 
 # Como configurar dispositivos BLE en equipos teltonika como el eye sensor
-Guia rápida de como configurar sensores BLE (Bluetooth) de manera  rápida y sencilla en equipos GPS de la marca Teltonika.
+
+Guia rápida de como configurar sensores BLE (Bluetooth) de manera rápida y sencilla en equipos GPS de la marca Teltonika.
 
 ## Direccion MAC
 
-Para esto necesitará leer la MAC del sensor que deseamos configurar en nuestro equipo, podrá leerla directamente desde el código QR que trae impreso el dispositivo o bien conectándolo vía BT  desde nuestro teléfono celular y usando la EYE APP: 
+Para esto necesitará leer la MAC del sensor que deseamos configurar en nuestro equipo, podrá leerla directamente desde el código QR que trae impreso el dispositivo o bien conectándolo vía BT desde nuestro teléfono celular y usando la EYE APP:
 
-https://wiki.teltonika-gps.com/view/File:QR.jpg 
+![Success](/static/images/teltonika/config/eye-sensor.png)
 
 ## Configuracion
-Conectamos nuestro GPS a la computadora y con la dirección  MAC de nuestro sensor procedemos a la configuración de nuestro equipo GPS. Si necesitas información sobre cómo configurar el GPS puedes leer esta entrada. 
+
+Conectamos nuestro GPS a la computadora y con la dirección MAC de nuestro sensor procedemos a la configuración de nuestro equipo GPS. Si necesitas información sobre cómo configurar el GPS [puedes leer esta entrada](/como-configurar-dispositivos-ble-en-equipos-teltonika-como-el-eye-sensor).
 
 Necesitaremos el software oficial de configuración con el cual configuramos el GPS.
 
-Con el equipo conectado a nuestra computadora y el software abierto nos vamos a la pestaña de System, ahí buscaremos la casilla de Data Protocol y seleccionaremos Codec 8 Extended.
+1. Con el equipo conectado a nuestra computadora y el software abierto nos vamos a la pestaña de System, ahí buscaremos la casilla de Data Protocol y seleccionaremos Codec 8 Extended, viene por defecto, pero hay que cerciorarse.
+![System teltonika](/static/images/teltonika/config/system.png)
 
-El siguiente paso es irnos a la casilla de Bluetooth 4.0, ahí es donde podremos dar de alta nuestros sensores BLE, los ajustes recomendados en Common Settings son los siguientes:
+2. El siguiente paso es irnos a la casilla de Bluetooth 4.0, ahí es donde podremos dar de alta nuestros sensores BLE, los ajustes recomendados en Common Settings son los siguientes:
+![Bluetooth setting](/static/images/teltonika/config/bluetooth.png)
 
-De igual manera se recomienda ajustar la potencia de nuestro sensor al nivel deseado  
-de acuerdo a la distancia del mis con respecto al equipo GPS:
 
-El siguiente paso a seguir es editar nuestro sensor, seleccionamos el modo avanzado, en settings  colocaremos la MAC de nuestro sensor y al final seleccionaremos el PRESET de acuerdo a la marca  y modelo de sensor que vayamos a usar: 
+De igual manera se recomienda ajustar la potencia de nuestro sensor al nivel deseado de acuerdo a la distancia del mis con respecto al equipo GPS:
 
-Para finalizar nos vamos al apartado de I/O y activamos los eventos que queremos que nos envié el equipo a plataforma y con qué tipo de prioridad los necesitamos: 
+3. El siguiente paso es irnos a la casilla de Bluetooth 4.0, ahí es donde podremos dar de alta nuestros sensores BLE, damos scroll y buscamos la casilla. Los ajustes recomendados en Common Settings son los siguientes:
+![Bluetooth setting](/static/images/teltonika/config/bluetooth-setting.png)
+![Bluetooth setting](/static/images/teltonika/config/preset.png)
 
+
+4. Para finalizar nos vamos al apartado de I/O y activamos los eventos que queremos que nos envié el equipo a plataforma y con qué tipo de prioridad los necesitamos:
+![Bluetooth setting](/static/images/teltonika/config/v0.png)
+
+Y listo.
