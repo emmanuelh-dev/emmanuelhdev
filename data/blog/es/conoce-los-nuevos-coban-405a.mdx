@@ -1,6 +1,6 @@
 ---
 title: 'Monitorear Temperatura y Ubicación con el Rastreador GPS Coban 405'
-date: '2024-03-15' 
+date: '2024-03-15'
 tags: ['gps', 'rastreador', 'vehicular', 'temperatura']
 draft: false
 summary: 'Aprende cómo configurar el rastreador GPS Coban 405 para monitorear continuamente la temperatura junto con la ubicación en la plataforma web o aplicación móvil.'
@@ -19,6 +19,7 @@ temperature+contraseña+espacio+temperatura_baja,temperatura_alta
 ```
 
 Por ejemplo:
+
 ```
 temperature123456 -10,40
 ```
@@ -51,37 +52,47 @@ Una vez instalado el hardware del sensor, podrás acceder a todas las funciones 
 Para configurar un GPS Coban requieres enviar comandos SMS con la contraseña. La contraseña por defecto es 123456.
 
 Monitoreo de Temperatura en Modo GPRS:
+
 ```
 protocol123456 18
 ```
+
 Activa el protocolo extendido que incluye temperatura en los reportes GPRS.
 
 Alertas de Temperatura:
+
 ```
 temperature123456 -10,40
 ```
+
 Configura una alerta si la temperatura cae por debajo de -10°C o sube por encima de 40°C.
 
 ```
 notemperature123456
 ```
+
 Desactiva las alertas de temperatura.
 
 Verificar Temperatura:
+
 ```
 check123456
 ```
+
 Solicita el estado del dispositivo, que incluye la temperatura actual entre otros datos.
 
 Obtener Ubicación y Temperatura por SMS:
-```  
+
+```
 fix090s***n123456
 ```
+
 Solicita un reporte de ubicación.
 
 ```
-check123456 
+check123456
 ```
+
 Solicita el estado con temperatura.
 
 Además, puedes configurar contraseña, APN, modo de rastreo, alertas diversas y más con comandos como:
