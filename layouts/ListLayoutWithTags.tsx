@@ -128,7 +128,7 @@ export default function ListLayoutWithTags({
                     <article className="flex flex-col space-y-2 xl:space-y-0">
                       <dl>
                         <dt className="sr-only">Published on</dt>
-                        <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                        <dd className=" font-medium leading-6 text-gray-500 dark:text-gray-400">
                           <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                         </dd>
                       </dl>
@@ -143,9 +143,7 @@ export default function ListLayoutWithTags({
                             {tags?.map((tag) => <Tag key={tag} text={tag} />)}
                           </div>
                         </div>
-                        <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                          {summary}
-                        </div>
+                        <div className="max-w-none text-gray-500 dark:text-gray-400">{summary}</div>
                       </div>
                     </article>
                   </li>
