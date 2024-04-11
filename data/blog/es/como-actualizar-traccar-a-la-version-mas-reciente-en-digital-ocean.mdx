@@ -1,0 +1,81 @@
+---
+title: ''
+date: 2024-04-11
+tags: ['Generador de cabeceras para Tailwind Nextjs Starter Blog']
+draft: false
+authors: ['default']
+summary: 'Si estás al pendiente de las actualizaciones de traccar y te interesa mantener actualizado tu sistema esto te interesa'
+---
+
+# Cómo actualizar traccar a la versión más reciente en digital ocean?
+
+Si estás al pendiente de las actualizaciones de traccar y te interesa mantener actualizado tu sistema esto te interesa, probablemente vengas del [este blog](/blog/es/como-instalar-traccar-en-ubuntu-en-digitalocean) los pasos son prácticamente iguales, salvo un par de cambios, pero no te preocupes, te guiaré en todo el proceso
+
+## 1. Disclaimer
+
+Puedes usar este link que me ayuda a seguir creando contenido. Puedes registrarte usando [este enlace](https://m.do.co/c/5ac4ff8a5bab) para recibir $200 de crédito gratis para probar los servicios de DigitalOcean y a mi me dara 25 dólares.
+
+La información de este blog se sacó de la fuente oficial https://www.traccar.org/linux/, solo se simplificó para dejar los pasos más claros.
+
+## 1. Detén y desinstala el servicio de traccar
+
+```
+service traccar stop && sudo rm /etc/systemd/system/traccar.service
+```
+
+## 2. Instala el software necesario
+
+Conectamos al droplet por SSH y ejecutamos los siguientes comandos para instalar el software necesario:
+
+```
+apt update && apt -y install unzip mysql-server
+```
+
+Esto instalará la utilidad unzip y el servidor MySQL.
+
+## 3. Configura la base de datos MySQL
+
+A continuación configuramos la base de datos:
+
+```
+mysql -u root --execute="ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root'; GRANT ALL ON *.* TO 'root'@'localhost' WITH GRANT OPTION; FLUSH PRIVILEGES; CREATE DATABASE traccar;"
+```
+
+Esto establece la contraseña de root, otorga permisos totales al usuario root y crea una nueva base de datos llamada "traccar".
+
+## 4. Descargamos e instalamos traccar
+
+Con este comando se descargara la última versión de traccar de forma automática.
+
+```
+wget https://www.traccar.org/download/traccar-linux-64-latest.zip
+```
+
+La descomprimimos y la instalamos:
+
+```
+unzip traccar-linux-*.zip && ./traccar.run
+
+```
+
+## 5. Inicia el servicio Traccar
+
+Finalmente iniciamos el servicio Traccar, **como no lo instalamos desde cero, ya esta configurado lo demás, solo es un tema de actualizar el servicio**
+
+```
+service traccar start
+```
+## Actualizar el frontend custom
+
+Si tienes una versión custom solo reemplazala en la carpeta de modern y todo seguirá igual. 
+
+## 7. Problemas comunes
+
+_ Esta sección debe actualizarse según sea necesario._
+
+Los pasos anteriores deberían funcionar correctamente. Sin embargo, si al acceder a la IP de tu droplet `http://000.000.000.00:8082/` no se muestra la página, es posible que el servicio esté funcionando, pero haya algún problema. Lo más sencillo que puedes probar es detener el servicio y volver a iniciarlo.
+
+```bash
+service traccar stop && service traccar start
+```
+ 
