@@ -3,9 +3,18 @@ interface Project {
   description: string
   href?: string
   imgSrc?: string
+  github?: string
 }
 
 const projectsData: Project[] = [
+  {
+    title: 'Astro Starter Blog',
+    description:
+      'This is an Astro blog template with Tailwind CSS. It comes pre-configured with modern web technologies to streamline your blogging experience.',
+    imgSrc: '',
+    href: 'https://tailwind-astro-starter-blog.emmanuelh.dev/',
+    github: 'https://github.com/emmanuelh-dev/tailwind-astro-starter-blog',
+  },
   {
     title: 'TAILVERSE',
     description: `Get started with a large variety of Tailwind CSS templates, tailwind translator and css to tailwind`,
