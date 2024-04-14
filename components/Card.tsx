@@ -1,7 +1,8 @@
 import Image from './Image'
 import Link from './Link'
+import { FaGithub } from 'react-icons/fa'
 
-const Card = ({ title, description, imgSrc, href }) => (
+const Card = ({ title, description, imgSrc, href, github }) => (
   <div className="md max-w-[544px] p-4 md:w-1/2">
     <div
       className={`${
@@ -29,13 +30,18 @@ const Card = ({ title, description, imgSrc, href }) => (
           />
         ))}
       <div className="p-6">
-        <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
+        <h2 className="mb-3 flex items-center gap-4 text-2xl font-bold leading-8 tracking-tight">
           {href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
               {title}
             </Link>
           ) : (
             title
+          )}{' '}
+          {github && (
+            <Link href={github}>
+              <FaGithub />
+            </Link>
           )}
         </h2>
         <p className="mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
