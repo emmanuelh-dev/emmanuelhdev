@@ -1,80 +1,79 @@
 ---
-title: 'Cómo actualizar traccar a la versión más reciente en digital ocean?'
+title: 'Cómo actualizar Traccar a la versión más reciente en DigitalOcean'
 date: 2024-04-11
 tags: ['traccar', 'es']
 draft: false
 authors: ['default']
-summary: 'Si estás al pendiente de las actualizaciones de traccar y te interesa mantener actualizado tu sistema esto te interesa'
+summary: 'Mantén tu sistema Traccar actualizado con esta guía para DigitalOcean.'
 ---
 
-# Cómo actualizar traccar a la versión más reciente en digital ocean?
+## Cómo actualizar Traccar a la versión más reciente en DigitalOcean
 
-Si estás al pendiente de las actualizaciones de traccar y te interesa mantener actualizado tu sistema esto te interesa, probablemente vengas del [este blog](/blog/es/como-instalar-traccar-en-ubuntu-en-digitalocean) los pasos son prácticamente iguales, salvo un par de cambios, pero no te preocupes, te guiaré en todo el proceso
+Si te interesa mantener tu sistema Traccar actualizado, sigue estos pasos. Si vienes de [este blog](/blog/es/como-instalar-traccar-en-ubuntu-en-digitalocean), los pasos son similares con algunos cambios. Aquí te guiaré en todo el proceso.
 
-## 1. Disclaimer
+<TOCInline toc={props.toc} exclude="Cómo actualizar traccar a la versión más reciente en digital ocean?" toHeading={4} />
 
-Puedes usar este link que me ayuda a seguir creando contenido. Puedes registrarte usando [este enlace](https://m.do.co/c/5ac4ff8a5bab) para recibir $200 de crédito gratis para probar los servicios de DigitalOcean y a mi me dara 25 dólares.
+## Disclaimer
 
-La información de este blog se sacó de la fuente oficial https://www.traccar.org/linux/, solo se simplificó para dejar los pasos más claros.
+Puedes usar [este enlace](https://m.do.co/c/5ac4ff8a5bab) para registrarte y recibir 200 de crédito gratis en DigitalOcean. A mí me dará 25 por cada registro.
 
-## 1. Detén y desinstala el servicio de traccar
+La información se basa en la guía oficial de Traccar en https://www.traccar.org/linux/, simplificada para mayor claridad.
 
-```
+## 1. Detén y desinstala el servicio de Traccar
+
+Detén y elimina el servicio con estos comandos:
+
+```bash
 service traccar stop && sudo rm /etc/systemd/system/traccar.service
 ```
 
-## 2. Instala el software necesario
+## 2. Descarga e instala Traccar
 
-Conectamos al droplet por SSH y ejecutamos los siguientes comandos para instalar el software necesario:
+Borra el archivo anterior y descarga la nueva versión:
 
-```
-apt update && apt -y install unzip mysql-server
-```
-
-Esto instalará la utilidad unzip y el servidor MySQL.
-
-## 3. Configura la base de datos MySQL
-
-A continuación configuramos la base de datos:
-
-```
-mysql -u root --execute="ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root'; GRANT ALL ON *.* TO 'root'@'localhost' WITH GRANT OPTION; FLUSH PRIVILEGES; CREATE DATABASE traccar;"
+```bash
+rm traccar-linux* && wget https://www.traccar.org/download/traccar-linux-64-latest.zip
 ```
 
-Esto establece la contraseña de root, otorga permisos totales al usuario root y crea una nueva base de datos llamada "traccar".
+Descomprime e instala:
 
-## 4. Descargamos e instalamos traccar
-
-Con este comando se descargara la última versión de traccar de forma automática.
-
-```
-wget https://www.traccar.org/download/traccar-linux-64-latest.zip
-```
-
-La descomprimimos y la instalamos:
-
-```
+```bash
 unzip traccar-linux-*.zip && ./traccar.run
-
 ```
 
-## 5. Inicia el servicio Traccar
+## 3. Reemplaza el archivo XML si lo modificaste
 
-Finalmente iniciamos el servicio Traccar, **como no lo instalamos desde cero, ya esta configurado lo demás, solo es un tema de actualizar el servicio**
+Si modificaste el archivo `traccar.xml`, reemplázalo. Si no, salta este paso:
 
+```bash
+cat > /opt/traccar/conf/traccar.xml << EOF
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE properties SYSTEM 'http://java.sun.com/dtd/properties.dtd'>
+<properties>
+    <entry key="config.default">./conf/default.xml</entry>
+    <entry key='database.driver'>com.mysql.jdbc.Driver</entry>
+    <entry key='database.url'>jdbc:mysql://localhost/traccar?zeroDateTimeBehavior=round&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8&amp;sessionVariables=sql_mode=''</entry>
+    <entry key='database.user'>root</entry>
+    <entry key='database.password'>root</entry>
+</properties>
+EOF
 ```
+
+## 4. Inicia el servicio Traccar
+
+Inicia el servicio:
+
+```bash
 service traccar start
 ```
 
-## Actualizar el frontend custom
+## 5. Actualizar el frontend personalizado
 
-Si tienes una versión custom solo reemplazala en la carpeta de modern y todo seguirá igual.
+Si tienes una versión personalizada, reemplázala en la carpeta `modern`.
 
-## 7. Problemas comunes
+## Problemas comunes
 
-_ Esta sección debe actualizarse según sea necesario._
-
-Los pasos anteriores deberían funcionar correctamente. Sin embargo, si al acceder a la IP de tu droplet `http://000.000.000.00:8082/` no se muestra la página, es posible que el servicio esté funcionando, pero haya algún problema. Lo más sencillo que puedes probar es detener el servicio y volver a iniciarlo.
+Si al acceder a la IP de tu droplet `http://000.000.000.00:8082/` no se muestra la página, puede haber un problema con el servicio. Intenta detener y volver a iniciar el servicio:
 
 ```bash
 service traccar stop && service traccar start
