@@ -12,6 +12,7 @@ import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import Script from 'next/script'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -75,11 +76,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <meta name="google-adsense-account" content="ca-pub-3646138644530578" />
-      <script
+      <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3646138644530578"
         crossOrigin="anonymous"
-      />
+        strategy="lazyOnload"
+      ></Script>
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       <body className="bg-white text-sm text-black antialiased dark:bg-black dark:text-white">
         <ThemeProviders>
