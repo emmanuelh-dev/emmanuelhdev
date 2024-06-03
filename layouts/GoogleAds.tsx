@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from 'react'
 
 export default function GoogleAds() {
   useEffect(() => {
     if (window.adsbygoogle && window.adsbygoogle.push) {
-      window.adsbygoogle.push({});
+      window.adsbygoogle.push({})
     }
-  }, []);
+  }, [])
 
   return (
     <div>
@@ -18,5 +18,5 @@ export default function GoogleAds() {
         data-full-width-responsive="true"
       ></ins>
     </div>
-  );
+  )
 }
