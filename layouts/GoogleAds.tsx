@@ -1,7 +1,22 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function GoogleAds() {
+  useEffect(() => {
+    const adsbygoogleScript = document.createElement('script')
+    adsbygoogleScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+    adsbygoogleScript.async = true
+    document.body.appendChild(adsbygoogleScript)
+
+    adsbygoogleScript.onload = () => {
+      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+    }
+
+    return () => {
+      document.body.removeChild(adsbygoogleScript)
+    }
+  }, [])
+
   return (
     <div>
       <ins
@@ -12,11 +27,6 @@ export default function GoogleAds() {
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: '(window.adsbygoogle = window.adsbygoogle || []).push({});',
-        }}
-      />
     </div>
   )
 }
