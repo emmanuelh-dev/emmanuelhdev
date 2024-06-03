@@ -1,16 +1,24 @@
+'use client'
 import React, { useEffect } from 'react'
 
 const AdComponent: React.FC = () => {
   useEffect(() => {
-    // Crear un nuevo script
-    const script = document.createElement('script')
+    // Verificar si el script de anuncios ya está presente en el DOM
+    const existingScript = document.querySelector(
+      'script[src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]'
+    )
 
-    // Configurar los atributos del script
-    script.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
-    script.async = true
+    if (!existingScript) {
+      // Crear un nuevo script
+      const script = document.createElement('script')
 
-    // Agregar el script al body del documento
-    document.body.appendChild(script)
+      // Configurar los atributos del script
+      script.src = '//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+      script.async = true
+
+      // Agregar el script al body del documento
+      document.body.appendChild(script)
+    }
 
     // Ejecutar el script de anuncios una vez que el componente se monta
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,9 +26,12 @@ const AdComponent: React.FC = () => {
 
     // Limpiar el script al desmontar el componente
     return () => {
-      document.body.removeChild(script)
+      const insElements = document.querySelectorAll('.adsbygoogle')
+      insElements.forEach((element) => {
+        element.innerHTML = ''
+      })
     }
-  }, []) // El array vacío como segundo argumento asegura que este efecto solo se ejecute una vez después del montaje
+  }, [])
 
   return (
     <ins
