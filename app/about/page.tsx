@@ -3,7 +3,8 @@ import { MDXLayoutRenderer } from 'pliny/mdx-components'
 import AuthorLayout from '@/layouts/AuthorLayout'
 import { coreContent } from 'pliny/utils/contentlayer'
 import { genPageMetadata } from 'app/seo'
-import { experience, ExperienceCard } from 'app/experience/page'
+import { ExperienceCard } from 'app/experience/page'
+import { experience } from '@/data/experience'
 
 export const metadata = genPageMetadata({ title: 'About' })
 
