@@ -82,7 +82,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         crossOrigin="anonymous"
       ></Script>
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body className="bg-white text-sm text-black antialiased dark:bg-black dark:text-white">
+      <body className="text-md bg-white text-black antialiased dark:bg-black dark:text-white">
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <VercelAnalytics />
