@@ -93,6 +93,16 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+              <div>
+                <ins
+                  className="adsbygoogle"
+                  style={{ display: 'block' }}
+                  data-ad-client="ca-pub-3646138644530578"
+                  data-ad-slot="6395288197"
+                  data-ad-format="auto"
+                  data-full-width-responsive="true"
+                ></ins>
+              </div>
               <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
               <div className="text-md pb-6 pt-6 text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(path)} rel="nofollow">
