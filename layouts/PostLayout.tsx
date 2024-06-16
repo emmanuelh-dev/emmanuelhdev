@@ -122,14 +122,6 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
 
             <footer>
               <div className="text-md divide-gray-200 font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
-                <ins
-                  className="adsbygoogle"
-                  style={{ display: 'block' }}
-                  data-ad-client="ca-pub-3646138644530578"
-                  data-ad-slot="6731750998"
-                  data-ad-format="auto"
-                  data-full-width-responsive="true"
-                ></ins>
                 <div className="flex items-center justify-center py-4 xl:py-8">
                   <a href="https://www.digitalocean.com/?refcode=bcd15eddc0aa&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge">
                     <Image
@@ -187,7 +179,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 </Link>
               </div>
               <ins
-                className="adsbygoogle"
+                className="adsbygoogle sticky top-10 mt-6"
                 style={{ display: 'block' }}
                 data-ad-client="ca-pub-3646138644530578"
                 data-ad-slot="9734184827"
