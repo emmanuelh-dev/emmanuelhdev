@@ -45,7 +45,7 @@ const GradientGenerator = () => {
               updateToColor={updateToColor}
             />
             <div className="flex gap-4">
-              <Select
+              {/* <Select
                 options={[
                   { title: 'Inactive', value: false },
                   { title: 'Active', value: true },
@@ -54,8 +54,8 @@ const GradientGenerator = () => {
                 title={via}
                 setTitle={updateViaColor}
                 setValue={updateViaValue}
-              />
-              <Select
+              /> */}
+              {/* <Select
                 options={[
                   { title: 'To Top', value: 'bg-gradient-to-t' },
                   { title: 'To Top Right', value: 'bg-gradient-to-tr' },
@@ -70,7 +70,7 @@ const GradientGenerator = () => {
                 title={gradientTitle}
                 setTitle={setGradientTitle}
                 setValue={setGradientValue}
-              />
+              /> */}
             </div>
             <div className="mt-4 flex items-center gap-2">
               <Input value={Class} disabled />

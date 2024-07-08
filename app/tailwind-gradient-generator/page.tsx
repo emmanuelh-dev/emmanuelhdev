@@ -190,13 +190,13 @@ const GRADIENTS = [
 
 const gradientGenerator = () => {
   return (
-    <mian>
+    <main>
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-[1fr_600px]">
+          <div className="grid gap-6 ">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                <h1 className="null bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-3xl font-extrabold tracking-tight text-transparent sm:text-5xl xl:text-6xl/none">
                   Create Stunning Gradients with Tailwind Gradient Generator
                 </h1>
                 <p className="max-w-[600px] text-gray-500 dark:text-gray-400 md:text-xl">
@@ -214,7 +214,6 @@ const gradientGenerator = () => {
                 </Link>
               </div>
             </div>
-            <div className="null mx-auto aspect-video h-full w-[600px] overflow-hidden rounded-xl bg-gradient-to-r from-red-700 to-rose-500 object-cover max-md:h-[400px] sm:w-full" />
           </div>
         </div>
       </section>
@@ -228,7 +227,7 @@ const gradientGenerator = () => {
         </p>
       </div>
       <GradientsExamples gradients={GRADIENTS} />
-    </mian>
+    </main>
   )
 }
 
