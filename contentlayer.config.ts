@@ -133,21 +133,21 @@ export default makeSource({
   documentTypes: [Blog, Authors],
   mdx: {
     cwd: process.cwd(),
-    remarkPlugins: [
-      remarkExtractFrontmatter,
-      remarkGfm,
-      remarkCodeTitles,
-      remarkMath,
-      remarkImgToJsx,
-    ],
-    rehypePlugins: [
-      rehypeSlug,
-      rehypeAutolinkHeadings,
-      rehypeKatex,
-      [rehypeCitation, { path: path.join(root, 'data') }],
-      [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
-      rehypePresetMinify,
-    ],
+    // remarkPlugins: [
+    //   remarkExtractFrontmatter,
+    //   remarkGfm,
+    //   remarkCodeTitles,
+    //   remarkMath,
+    //   remarkImgToJsx,
+    // ],
+    // rehypePlugins: [
+    //   rehypeSlug,
+    //   rehypeAutolinkHeadings,
+    //   rehypeKatex,
+    //   [rehypeCitation, { path: path.join(root, 'data') }],
+    //   [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
+    //   rehypePresetMinify,
+    // ],
   },
   onSuccess: async (importData) => {
     const { allBlogs } = await importData()
